@@ -1,0 +1,22 @@
+<%= simple_form_for @receipt, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> /Receipt</legend>
+		
+		<%= f.input :user_id %>
+		<%= f.input :classification %>
+		<%= f.input :name %>
+		<%= f.input :date %>
+		<%= f.input :amount %>
+		<%= f.hidden_field :country %>
+		<%= f.input :city %>
+		<%= f.input :street %>
+		<%= f.hidden_field :latitude %>
+		<%= f.hidden_field :longitude %>
+		<%= f.hidden_field :gmaps %>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', receipts_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

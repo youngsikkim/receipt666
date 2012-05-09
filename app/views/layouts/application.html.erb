@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Receiptbook</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= stylesheet_link_tag 'gmaps4rails' %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Map</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "receipts", receipts_path %></li>
+						
+          </ul>
+					<ul class="nav pull-right">
+							<li class="dropdown" id="menu1">
+						    <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+									 <i class="icon-user icon-white"></i> User
+						      <b class="caret"></b>
+						    </a>
+						    <ul class="dropdown-menu">
+						      <li><%= render 'devise/menu/login_items' %></li>
+						      <li><%= render 'devise/menu/registration_items' %></li>
+						    </ul>
+						  </li>
+
+	        </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+	<div class="container">
+	  <div class="row">
+			<%= yield %>
+			<%= yield :scripts %>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

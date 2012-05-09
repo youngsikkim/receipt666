@@ -1,0 +1,36 @@
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+			<th>분류</th>
+			<th>do</th>
+			<th>도시</th>
+			<th>street</th>
+			<th>날짜</th>
+			<th>금액</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @receipts.each do |receipt| %>
+      <tr>
+
+        <td><%= link_to receipt.user.email, receipt_path(receipt) %></td>
+        <td><%= receipt.classification %></td>
+				<td><%= receipt.name %></td>
+				<td><%= receipt.city %></td>
+				<td><%= receipt.street %></td>
+				<td><%= receipt.date.strftime("%Y-%m-%d %H:%M") %></td>
+				<td><%= receipt.amount %></td>
+        <td>
+          <%= link_to 'Edit', edit_receipt_path(receipt), :class => 'btn btn-mini' %>
+          <%= link_to 'Destroy', receipt_path(receipt), :method => :delete, :confirm => 'Are you sure?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_receipt_path, :class => 'btn btn-primary' %>
+<%= gmaps4rails(@json) %>
